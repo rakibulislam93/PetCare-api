@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-e8eg98mqnr7m5gi)5o8gz4p1^wgtdsonuqt8#3a8gyh%ug1eyu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
 
-CORS_ALLOW_ALL_ORIGINS = True
+
+
 
 # Application definition
 
@@ -85,10 +85,10 @@ REST_FRAMEWORK = {
 SITE_ID = 1
 
 # dj-rest-auth configuration
-REST_USE_JWT = True  # JWT ব্যবহার করতে চাইলে এটি True করো
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # ইমেইল যাচাই বাধ্যতামূলক
-ACCOUNT_EMAIL_REQUIRED = True  # ইমেইল আবশ্যক
-ACCOUNT_AUTHENTICATION_METHOD = 'username'  # ইমেইল দ্বারা লগইন
+# REST_USE_JWT = True 
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory' 
+# ACCOUNT_EMAIL_REQUIRED = True 
+# ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 
 
@@ -106,6 +106,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
+
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1:5500',
+    'https://pet-care-api.vercel.app/',
+]
+
+
 
 ROOT_URLCONF = 'authenticaion_system.urls'
 
