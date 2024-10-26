@@ -18,15 +18,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from allauth.account.views import confirm_email
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include("accounts.urls")),
     path('pet/',include('pet.urls')),
     path('api-auth/',include('rest_framework.urls')),
-    path('api/auth/registration/account-confirm-email/<str:key>/', confirm_email,name='confirm_email'),
-    path('api/auth/', include('dj_rest_auth.urls')),  # লগইন, লগআউট, পাসওয়ার্ড রিসেট
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),  # রেজিস্ট্রেশন
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
