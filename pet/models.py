@@ -21,7 +21,7 @@ class PetModel(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=12,decimal_places=2)
     available = models.BooleanField(default=True)
-    # image = models.ImageField(upload_to="pet/images/")
+    
     image = models.URLField(max_length=200,null=True,blank=True)
     age = models.FloatField(null=True,blank=True)
     added_by = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)

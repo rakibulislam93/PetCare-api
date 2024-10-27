@@ -36,4 +36,3 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = models.Review
         fields = '__all__'
         
-        # read_only_fields = ['reviewer']

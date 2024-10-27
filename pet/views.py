@@ -53,37 +53,6 @@ class PetViewSet(viewsets.ModelViewSet):
 # pet get,post,put,delete er kaj finish......
 
 
-
-class PetApiView(APIView):
-
-    serializer_class = serializers.PetSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['category__name','price']
-    # def get(self,request):
-    #     print('******************')
-        
-    #     pet_obj = models.PetModel.objects.all()
-    #     search_query = request.query_params.get('search',None)
-    #     if search_query:
-    #         pet_obj = pet_obj.filter(category__name__icontains=search_query)
-    #     serializer = serializers.PetSerializer(pet_obj,many=True,context={'request':request})
-        
-    #     return Response(serializer.data)
-
-    def get(self,request):
-        queryset = models.PetModel.objects.all()
-        search = request.query_params.get('search',None)
-
-        if(search):
-            queryset = queryset.filter(search=search)
-            serializer = serializers.PetSerializer(queryset,many=True)
-            return Response(serializer.data)
-        
-        serializer = serializers.PetSerializer(queryset,many=True)
-        return Response(serializer.data)
-
-
-
 # akta user er add kora pet gulake filter korbo
 class UserAddedPet(APIView):
     permission_classes=[permissions.IsAuthenticated]
