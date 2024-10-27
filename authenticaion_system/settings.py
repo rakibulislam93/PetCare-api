@@ -56,10 +56,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'django_filters',
-    # 'accounts',
     # local
     'pet',
-    'accounts.apps.AccountsConfig',
+    'accounts',
+    
 ]
 
 REST_FRAMEWORK = {
