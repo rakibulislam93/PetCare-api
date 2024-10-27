@@ -66,7 +66,7 @@ class DepositeSerializer(serializers.ModelSerializer):
 
 # User can change his profile
 class ProfileUpdateSerializer(serializers.ModelSerializer):
-    profile_image = serializers.ImageField(required=False)
+    profile_image = serializers.URLField(required=False)
 
     class Meta : 
         model = User
